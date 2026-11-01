@@ -28,4 +28,7 @@ function filter(){const q=search.value.trim().toLowerCase();let count=0;cards.fo
 search.addEventListener('input',filter);document.getElementById('searchForm').addEventListener('submit',e=>{e.preventDefault();filter();document.getElementById('calculators').scrollIntoView({behavior:'smooth'})});
 document.getElementById('concreteForm').addEventListener('submit',e=>{e.preventDefault();const f=e.currentTarget;const l=Number(f.elements.length.value),w=Number(f.elements.width.value),t=Number(f.elements.thickness.value),extra=Number(f.elements.waste.value);const output=document.getElementById('result');if(![l,w,t,extra].every(Number.isFinite)||l<=0||w<=0||t<=0||extra<0||extra>100){output.textContent='Please enter valid positive dimensions and an allowance from 0% to 100%.';return}const base=l*w*(t/12)/27;output.textContent=`Estimated concrete: ${(base*(1+extra/100)).toFixed(2)} cubic yards (base ${base.toFixed(2)} yd³; including ${extra}% extra).`});
 </script>
+  
+<a href="concrete.html">Concrete Calculator</a>
+
 </body></html>
